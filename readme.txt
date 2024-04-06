@@ -1,0 +1,1 @@
+This my way to PHP development.
