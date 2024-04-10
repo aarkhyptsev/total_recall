@@ -2,9 +2,11 @@
 
 Это учебный проект из "backend course 2020 - level 2" от **[Ш++](https://programming.org.ua)**.
 Суть в разработке API, реализующего CRUD для ToDo приложения с регистрацией и авторизацией.
-MySQL, routing, CORS, SESSION, COOKIE, JSON, HTTP.
+MySQL, router.php, CORS, SESSION, COOKIE, JSON, HTTP.
                                                          
 ## Особенности
+Точка входа - router.php
+
 API должен работать с чужим **готовым фронтом** на разных серверах.
 
 Фронт имеет странный код в index.php.
