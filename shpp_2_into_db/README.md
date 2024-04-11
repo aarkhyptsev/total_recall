@@ -42,7 +42,7 @@ CORS настроил в конфигурации VirtualHost в секции Di
     Header set Access-Control-Allow-Headers "Content-Type"
     Header set Access-Control-Allow-Credentials "true"
 ```
-## Личные заметки
+## Personal notes
 
 Получить тело POST запроса:
 file_get_contents('php://input')
