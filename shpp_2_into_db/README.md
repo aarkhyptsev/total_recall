@@ -1,10 +1,10 @@
-# Что это за проект?
+# What it is?
 
 Это учебный проект "backend course 2020 - level 2" от **[Ш++](https://programming.org.ua)**.
 Суть в разработке API, реализующего CRUD для ToDo приложения с регистрацией и авторизацией.
 MySQL, router.php, CORS, SESSION, COOKIE, JSON, HTTP.
                                                          
-## Особенности
+## Realisation features
 Точка входа - router.php
 
 Для создания базы и таблиц нужно заполнить db_config.php и запустить db_create.php.
