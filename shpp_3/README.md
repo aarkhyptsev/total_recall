@@ -6,3 +6,8 @@ Templates, router, MVC, migrations, bootstrap, hasMany / hasOne, basic auth, cro
 
 ## Realisation features
 Еще нет.
+## Personal notes
+Годный материал по написанию простого MVC фреймворка
+[здесь](https://reintech.io/blog/building-php-mvc-framework-from-scratch)
+и [здесь](https://code.mu/ru/php/book/oop/mvc/framework/intro/).
+
