@@ -20,12 +20,18 @@ class Model
         return mysqli_fetch_assoc($result);
     }
 
-    public function findMany($query)
+    protected function findMany($query)
     {
         $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
         for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
 
         return $data;
     }
+    protected function insert($query)
+    {
+        $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
+        return $result; // Возвращает true при успешном выполнении запроса
+    }
+
 }
 

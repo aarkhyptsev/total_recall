@@ -11,4 +11,9 @@ class Book extends Model
         $query = "SELECT * FROM books WHERE book_id=$book_id";
         return $this->findOne($query);
     }
+    public function getByOffset($number)
+    {
+        $query = "SELECT * FROM books LIMIT $number";
+        return $this->findMany($query);
+    }
 }

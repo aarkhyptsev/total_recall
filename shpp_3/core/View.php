@@ -27,7 +27,7 @@ class View
 
         if (file_exists($viewPath)) {
             ob_start();
-            extract($data);    // массив в переменные
+            extract($data);
             include $viewPath; // подключаем файл с представлением
             return ob_get_clean();
         }

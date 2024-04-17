@@ -43,13 +43,13 @@
                     <div class="bookDescription col-xs-12 col-sm-12 col-md-12 hidden-xs hidden-sm">
                         <h4>О книге</h4>
                         <hr>
-                        <p id="description"><?= $book_name ?></p>
+                        <p id="description"><?= $data['book_name'] ?></p>
                     </div>
                 </div>
                 <div class="bookDescription col-xs-12 col-sm-12 col-md-12 hidden-md hidden-lg">
                     <h4>О книге</h4>
                     <hr>
-                    <p class="description"><?= $book_name ?></p>
+                    <p class="description"><?= $data['book_name'] ?></p>
                 </div>
             </div>
             <script src="/public/js/book.js" defer=""></script>

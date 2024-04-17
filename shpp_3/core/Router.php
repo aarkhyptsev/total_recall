@@ -13,12 +13,15 @@ class Router
 
     public function dispatch($uri)
     {
+        /*if ($uri == '/') {
+            $uri = '/?offset=10';
+        }*/
         $fit = false;
         foreach ($this->routes as $route => $routeData) {
             if (preg_match($route, $uri, $matches)) {
                 $controller = $this->routes[$route]['controller'];
                 $action = $this->routes[$route]['action'];
-                $param = $matches[1];
+                $param = isset($matches[1]) ? $matches[1] : 0;
                 $fit = true;
 
                 $controller = new $controller();
