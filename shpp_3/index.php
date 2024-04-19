@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/connection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/constants.php';
 
 spl_autoload_register(function($class) {
     preg_match('#(.+)\\\\(.+?)$#', $class, $match);

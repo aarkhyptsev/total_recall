@@ -33,5 +33,6 @@ class Model
         return $result; // Возвращает true при успешном выполнении запроса
     }
 
+
 }
 

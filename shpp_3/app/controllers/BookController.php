@@ -15,11 +15,27 @@ class BookController extends Controller
         $this->render('book/one', $book);
     }
 
-    public function showOffset($num)
+    public function showOffset($offset)
     {
-        $num = !$num ? 10 : $num;
-        $books = (new Book())->getByOffset($num);
+        //Показать с $num + 20
+        //$num = !$num ? 10 : $num;// 0 тоже ситается, строка не нужна
+        $model = (new Book());
+        $books = $model->getByOffset($offset);// передали смещение
+        $offset_max = $model->getOffsetMax();
+        $pagination = ['offset' => $offset, 'offset_max' => $offset_max];
         $this->title = 'Books collection';
-        $this->render('book/many_books', $books);
+        $this->render('book/many_books', ['books' => $books, 'pagination' => $pagination]);
+    }
+
+    public function clickUp($id)
+    {
+        $result = (new Book())->clickUp($id);
+       /* if ($result) {
+            header('Content-Type: application/json');
+
+            // Отправляем ответ в формате JSON
+            echo json_encode(['success'=> true]);
+            exit;
+        }*/
     }
 }

@@ -8,17 +8,16 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row mb-5 mt-3">
         <div class="col">
             <h1>test.library</h1>
         </div>
         <div class="col text-end align-self-end">
-            <a href="#"><h4>Exit</h4></a>
+            <a href="/logout"><h4>Exit</h4></a>
         </div>
     </div>
-    <div class="row">
+    <div class=" row">
         <div class="col-8">
             <?= $content ?>
         </div>
@@ -27,7 +26,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Add a new book</h5>
 
-                    <form action="http://test.library/admin/add" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/add" method="POST" enctype="multipart/form-data">
                         <div class="row g-3 mb-3 mt-3">
                             <div class="col">
                                 <input type="text" class="form-control" name="book_name" placeholder="Books name"
@@ -67,8 +66,6 @@
 
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
