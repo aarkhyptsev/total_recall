@@ -6,22 +6,18 @@ use core\Model;
 
 class AdminPage extends Model
 {
-    public $items_per_page = 5;
-
     public function getBooksForPage($num_page)
     {
-        //расчитать пределы как (num_page - 1)*items_per_page
-        //$total_pages = ceil($total_items / $items_per_page);
-        $items_per_page = $this->items_per_page;
-        $offset = ($num_page - 1) * $items_per_page;
-        $query = "SELECT * FROM books LIMIT $offset, $items_per_page";
+        $limit = ADMIN_LIMIT;
+        $offset = ($num_page - 1) * $limit;
+        $query = "SELECT * FROM books LIMIT $offset, $limit";
         return $this->findMany($query);
     }
 
     public function getNumberAllPages()
     {
         $query = "SELECT COUNT(*) AS total_rows FROM books";
-        $items_per_page = $this->items_per_page;
+        $items_per_page = ADMIN_LIMIT;
         $total_items = $this->findOne($query);
         $total_items = $total_items['total_rows'];
         return ceil($total_items / $items_per_page);
@@ -31,7 +27,6 @@ class AdminPage extends Model
     {
         $book_img = $this->saveFile();
         extract($_POST);
-
         $query = "INSERT INTO books (book_name, book_author_1, book_img) VALUES ('$book_name', '$book_author_1', '$book_img')";
         return $this->insert($query);
 
