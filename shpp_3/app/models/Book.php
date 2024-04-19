@@ -30,6 +30,6 @@ class Book extends Model
     public function clickUp($id)
     {
         $query = "UPDATE books SET book_click=book_click+1 WHERE book_id=$id";
-        return $this->insert($query);
+        return $this->noSelect($query);
     }
 }

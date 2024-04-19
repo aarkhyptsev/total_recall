@@ -46,6 +46,15 @@ class AdminPageController extends Controller
             exit;
         };
     }
+    public function deleteBook($id)
+    {
+        $this->requireAuth();
+        $previous_page = $_SERVER['HTTP_REFERER'];
+        if ((new AdminPage())->deleteBook($id)) {
+            header("Location: $previous_page");
+            exit;
+        };
+    }
 
     public function logout($something)
     {

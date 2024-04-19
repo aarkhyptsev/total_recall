@@ -28,7 +28,13 @@ class AdminPage extends Model
         $book_img = $this->saveFile();
         extract($_POST);
         $query = "INSERT INTO books (book_name, book_author_1, book_img) VALUES ('$book_name', '$book_author_1', '$book_img')";
-        return $this->insert($query);
+        return $this->noSelect($query);
+
+    }
+    public function deleteBook($id)
+    {
+        $query = "DELETE FROM books WHERE book_id = $id";
+        return $this->noSelect($query);
 
     }
 

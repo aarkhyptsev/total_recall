@@ -7,8 +7,8 @@ define('DB_PASS', 'tiger');
 define('DB_NAME', 'shpp_3');
 
 // Offset and number of items per page
-define('OFFSET', 10);
-define('LIMIT', 20);
+define('OFFSET', 3);
+define('LIMIT', 13);
 define('ADMIN_LIMIT', 10);
 
 // Users name and password for basic auth

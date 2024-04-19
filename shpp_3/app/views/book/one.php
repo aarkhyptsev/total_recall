@@ -1,7 +1,7 @@
 <section id="main" class="main-wrapper">
     <div class="container">
         <div id="content" class="book_block col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <script id="pattern" type="text/template">
+            <!--<script id="pattern" type="text/template">
                 <div data-book-id="{id}" class="book_item col-xs-6 col-sm-3 col-md-2 col-lg-2">
                     <div class="book">
                         <a href="/book/{id}"><img src="img/books/{id}.jpg" alt="{title}">
@@ -15,7 +15,7 @@
                         </a>
                     </div>
                 </div>
-            </script>
+            </script>-->
             <div id="id" book-id="<?= $book_id ?>">
                 <div id="bookImg" class="col-xs-12 col-sm-3 col-md-3 item" style="
     margin:;

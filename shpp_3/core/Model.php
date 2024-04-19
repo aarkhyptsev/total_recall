@@ -2,37 +2,47 @@
 
 namespace Core;
 
+use PDO;
+use PDOException;
+
 class Model
 {
     private static $link;
 
     public function __construct()
     {
-        if (!self::$link) { // если свойство не задано, то подключаемся
-            self::$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-            mysqli_query(self::$link, "SET NAMES 'utf8'");
+        if (!self::$link) {
+            try {
+                $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8";
+                $options = [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_EMULATE_PREPARES => false,
+                ];
+                self::$link = new PDO($dsn, DB_USER, DB_PASS, $options);
+            } catch (PDOException $e) {
+                // Обработка ошибки подключения к базе данных
+                ResponseHandler::sendError('Error connecting to database:' . $e->getMessage(), 500);
+            }
         }
     }
 
     protected function findOne($query)
     {
-        $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
-        return mysqli_fetch_assoc($result);
+        $statement = self::$link->query($query);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     protected function findMany($query)
     {
-        $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
-        for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
-
-        return $data;
+        $statement = self::$link->query($query);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
-    protected function insert($query)
+
+    protected function noSelect($query)
     {
-        $result = mysqli_query(self::$link, $query) or die(mysqli_error(self::$link));
-        return $result; // Возвращает true при успешном выполнении запроса
+        $result = self::$link->exec($query);
+        return $result !== false; // Возвращает true при успешном выполнении запроса
     }
-
-
 }
-
