@@ -25,22 +25,34 @@
             <div class="card text-bg-light mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Add a new book</h5>
+                    <script>
+                        function validateForm() {
+                            var bookName = document.forms["myForm"]["book_name"].value;
+                            var author1 = document.forms["myForm"]["book_author_1"].value;
+                            var year = document.forms["myForm"]["year"].value;
+                            var file = document.forms["myForm"]["file"].value;
 
-                    <form action="/admin/add" method="POST" enctype="multipart/form-data">
+                            if (bookName == "" || author1 == "" || year == "" || file == "") {
+                                alert("Please fill in all required fields.");
+                                return false;
+                            }
+                        }
+                    </script>
+                    <form action="/admin/add" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                         <div class="row g-3 mb-3 mt-3">
                             <div class="col">
                                 <input type="text" class="form-control" name="book_name" placeholder="Books name"
-                                       aria-label="Books name">
+                                       aria-label="Books name" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="book_author_1" placeholder="Author 1"
-                                       aria-label="Author 1">
+                                       aria-label="Author 1" required>
                             </div>
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col">
                                 <input type="text" class="form-control" name="year" placeholder="Year"
-                                       aria-label="Year">
+                                       aria-label="Year" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="author_2"
@@ -49,7 +61,7 @@
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col">
-                                <input class="form-control" type="file" name="file" id="formFile">
+                                <input class="form-control" type="file" name="file" id="formFile" accept="image/*" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="author_3"

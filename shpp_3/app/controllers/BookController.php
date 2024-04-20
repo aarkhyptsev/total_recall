@@ -15,7 +15,7 @@ class BookController extends Controller
         $book = (new Book())->getById($id);
         if (!$book) {
             // Send an error response if offset exceeds the maximum allowed value
-            ResponseHandler::sendError('Invalid book id', 400);
+            header("Location: /");
         }
         // Set the title for the page
         $this->title = $book['book_name'];
@@ -40,8 +40,8 @@ class BookController extends Controller
 
         // Check if the provided offset is greater than the maximum offset
         if ($offset > $offset_max) {
-            // Send an error response if offset exceeds the maximum allowed value
-            ResponseHandler::sendError('Offset value exceeds the maximum allowed value', 400);
+            // Define limit for $offset
+            $offset = 0;
         }
 
         // Get books starting from the specified offset

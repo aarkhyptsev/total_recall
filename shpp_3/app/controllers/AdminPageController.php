@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use core\Controller;
 use app\models\AdminPage;
+use Core\ResponseHandler;
 
 class AdminPageController extends Controller
 {
@@ -29,8 +30,12 @@ class AdminPageController extends Controller
         $this->requireAuth();
         $num = !$num ? 1 : $num;
         $model = new AdminPage();
-        $books = $model->getBooksForPage($num);
         $total_pages = $model->getNumberAllPages();
+        // Define limit for $num
+        if ($num > $total_pages) {
+            $num=$total_pages;
+        }
+        $books = $model->getBooksForPage($num);
         $this->title = 'Page ' . $num;
         $this->layout = 'admin_page';
         $pagination = ['total_pages' => $total_pages, 'current_page' => $num];
@@ -46,6 +51,7 @@ class AdminPageController extends Controller
             exit;
         };
     }
+
     public function deleteBook($id)
     {
         $this->requireAuth();
