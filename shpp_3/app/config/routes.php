@@ -1,8 +1,9 @@
 <?php
 
 use Core\Router;
-use App\Controllers\BookController;
-use App\Controllers\AdminPageController;
+use App\controllers\BookController;
+use App\controllers\AdminPageController;
+use App\controllers\MigrationController;
 
 // Create an instance of the router
 $router = new Router();
@@ -18,6 +19,7 @@ $router->addRoute('#^\/admin\/(\d+)$#', AdminPageController::class, 'showPage');
 $router->addRoute('#^\/admin\/add$#', AdminPageController::class, 'addBook'); // Add a book
 $router->addRoute('#^\/logout$#', AdminPageController::class, 'logout'); // Log out
 $router->addRoute('#^\/admin\/delete\/(\d+)$#', AdminPageController::class, 'deleteBook'); // Delete a book
+$router->addRoute('#^\/migrate$#', MigrationController::class, 'migrate'); // Run migrations
 
 // Return the router instance
 return $router;

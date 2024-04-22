@@ -53,10 +53,16 @@ Security - GET запросы проблем не создадут,
 Форма со скриптом предварительной валидации: количество символов,
 только цифры в поле года и формат файлов jpg, jpeg, png, gif.
 
+Migration - в папку sql складываю все папки миграций и скрипт для их запуска.
+История запусков храниться в таблице versions.
+Очередность запуска определяется числом в начале имени файла миграции. 
+
 ## Personal notes
 Годный материал по написанию простого MVC фреймворка
 [здесь](https://reintech.io/blog/building-php-mvc-framework-from-scratch)
 и [здесь](https://code.mu/ru/php/book/oop/mvc/framework/intro/).
 
 Статья "[Securing PHP Applications: Input Sanitization and Best Practices](https://reintech.io/blog/securing-php-applications-input-sanitization-best-practices)" про безопасность PHP кода.
+
+[Статья](https://webdevkin.ru/posts/backend/mysql-migrations) о простой организации миграции.
 

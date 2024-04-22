@@ -9,6 +9,7 @@ spl_autoload_register(function($class) {
     $path = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $nameSpace . DIRECTORY_SEPARATOR . $className . '.php';
     require_once $path;
 });
+
 //Get uri
 $uri = $_SERVER['REQUEST_URI'];
 //Create new Router

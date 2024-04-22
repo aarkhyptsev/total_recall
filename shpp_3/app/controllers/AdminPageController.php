@@ -9,7 +9,7 @@ use Core\ResponseHandler;
 class AdminPageController extends Controller
 {
     // Метод для проверки авторизации
-    private function requireAuth()
+    protected function requireAuth()
     {
         header('Cache-Control: no-cache, must-revalidate, max-age=0');
         $has_supplied_credentials = !(empty($_SERVER['PHP_AUTH_USER']) && empty($_SERVER['PHP_AUTH_PW']));
