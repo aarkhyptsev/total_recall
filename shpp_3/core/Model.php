@@ -30,19 +30,41 @@ class Model
     {
         $statement = self::$link->query($query);
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $this->sanitizeData($result);
     }
 
     protected function findMany($query)
     {
         $statement = self::$link->query($query);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        return $this->sanitizeData($result);
     }
 
-    protected function noSelect($query)
+    protected function noSelect($query, $params = [])
     {
-        $result = self::$link->exec($query);
-        return $result !== false; // Возвращает true при успешном выполнении запроса
+        $statement = self::$link->prepare($query);
+        $success = $statement->execute($params);
+        return $success;
     }
+
+    private function sanitizeData($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                // Если значение является массивом, рекурсивно вызываем sanitizeData для этого массива
+                if (is_array($value)) {
+                    $data[$key] = $this->sanitizeData($value);
+                } else {
+                    // Если значение не является массивом, применяем очистку данных
+                    $data[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+                }
+            }
+        } else {
+            // Если $data не является массивом, применяем очистку данных
+            $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+        }
+
+        return $data;
+    }
+
 }

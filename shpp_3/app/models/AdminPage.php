@@ -27,11 +27,15 @@ class AdminPage extends Model
     public function addBook()
     {
         $book_img = $this->saveFile();
-        extract($_POST);
-        $query = "INSERT INTO books (book_name, book_author_1, book_img) VALUES ('$book_name', '$book_author_1', '$book_img')";
-        return $this->noSelect($query);
+        $book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $book_author_1 = filter_input(INPUT_POST, 'book_author_1', FILTER_SANITIZE_SPECIAL_CHARS);
 
+        $query = "INSERT INTO books (book_name, book_author_1, book_img) VALUES (:book_name, :book_author_1, :book_img)";
+        $params = array(':book_name' => $book_name, ':book_author_1' => $book_author_1, ':book_img' => $book_img);
+
+        return $this->noSelect($query, $params);
     }
+
 
     public function deleteBook($id)
     {
