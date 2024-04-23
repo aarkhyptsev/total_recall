@@ -31,10 +31,19 @@ class MigrationModel extends Model
 
     public function runMigrations($migrations)
     {
+        // Сортирует по возрастанию номера в имени файла
         sort($migrations);
         foreach ($migrations as $file) {
+            //$query = file_get_contents($file);
+            //$this->noSelect($query);
             $query = file_get_contents($file);
-            $this->noSelect($query);
+            $queries = explode(';', $query);
+
+            foreach ($queries as $query) {
+                if (!empty(trim($query))) {
+                    $this->noSelect($query);
+                }
+            }
             echo '<br>Migrate from: ' . $file;
             $params = [':file' => $file];
             $query = "INSERT INTO versions (name) VALUES (:file)";

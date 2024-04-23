@@ -56,7 +56,7 @@ class Model
                     $data[$key] = $this->sanitizeData($value);
                 } else {
                     // Если значение не является массивом, применяем очистку данных
-                    $data[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+                    $data[$key] = ($value!==null)? htmlspecialchars($value, ENT_QUOTES, 'UTF-8') : $value;
                 }
             }
         } else {
