@@ -21,7 +21,12 @@ Templates, router, MVC, migrations, bootstrap, hasMany / hasOne, JOIN, basic aut
 Поскольку задача построить безаджаксовый сайт, все "лишнее" из верстки я удалил.
 libs.min.css и style.css подключены без каких-либо изменений.
 
+![Collection view](../images/many_books.png)
+![One book](../images/one_book.png)
+
 **Admin page** - сверстал на bootstrap.
+
+![Admin page](../images/admin_page.png)
 
 **Basic auth** - залогиниться не проблема, проблема разлогиниться.
 Найдено чудесное решение, работающее без рестарта Firefox. Нажатие ссылки **Exit** должно вернуть:
@@ -42,6 +47,8 @@ libs.min.css и style.css подключены без каких-либо изм
 **Popup** - в уже предоставленном с фронтом libs.min.css есть классы для модальных окон.
 Нужно либо писать свой CSS под свои классы, либо использовать существующие.
 Я выбрал второе, а недостающие свойства включил в html-теги моего попапа.
+
+![Popup](../images/popup.png)
 
 **Click count** - скрипт лежит в click.js, которым я заменил предоставленный book.js.
 В нем же код для отображения модального окна.
