@@ -61,6 +61,17 @@ class AdminPageController extends Controller
             exit;
         };
     }
+    public function deleteBookRelations()
+    {
+        // Получить book_id для удаления
+        $model = new AdminPage();
+        $deletion_id=$model->getIdDeletion();
+        if($deletion_id){
+            $model->runIdDeletion($deletion_id);
+        }
+        // Если есть, то удалить связь, удалить книгу, удалить файл
+
+    }
 
     public function logout($something)
     {

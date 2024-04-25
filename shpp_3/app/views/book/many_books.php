@@ -14,7 +14,7 @@ $offset_max = $pagination['offset_max'];
                                 <div data-book-title="<?= $book_name ?>"
                                      class="title size_text"><?= $book_name ?>
                                 </div>
-                                <div data-book-author="<?= $book_author_1 ?>" class="author"><?= $book_author_1 ?></div>
+                                <div data-book-author="<?= $author_names ?>" class="author"><?= $author_names ?></div>
                             </div>
                         </a>
                         <a href="/book/<?= $book_id ?>">

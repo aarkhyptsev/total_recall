@@ -20,6 +20,7 @@ $router->addRoute('#^\/admin\/add$#', AdminPageController::class, 'addBook'); //
 $router->addRoute('#^\/logout$#', AdminPageController::class, 'logout'); // Log out
 $router->addRoute('#^\/admin\/delete\/(\d+)$#', AdminPageController::class, 'deleteBook'); // Delete a book
 $router->addRoute('#^\/migrate$#', MigrationController::class, 'migrate'); // Run migrations
+$router->addRoute('#^\/clean$#', AdminPageController::class, 'deleteBookRelations'); // Run total delete book and relations
 
 // Return the router instance
 return $router;

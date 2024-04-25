@@ -26,19 +26,23 @@ class Model
         }
     }
 
-    protected function findOne($query)
+    protected function findOne($query, $params = [])
     {
-        $statement = self::$link->query($query);
+        $statement = self::$link->prepare($query);
+        $statement->execute($params);
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $this->sanitizeData($result);
     }
 
-    protected function findMany($query)
+
+    protected function findMany($query, $params = [])
     {
-        $statement = self::$link->query($query);
+        $statement = self::$link->prepare($query);
+        $statement->execute($params);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $this->sanitizeData($result);
     }
+
 
     protected function noSelect($query, $params = [])
     {

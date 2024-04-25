@@ -29,7 +29,7 @@
                     <script>
                         function validateForm() {
                             var bookName = document.forms["myForm"]["book_name"].value;
-                            var author1 = document.forms["myForm"]["book_author_1"].value;
+                            var author1 = document.forms["myForm"]["book_authors[0]"].value;
                             var year = document.forms["myForm"]["year"].value;
                             var file = document.forms["myForm"]["file"].value;
 
@@ -61,7 +61,7 @@
                                        aria-label="Books name" required maxlength="100">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="book_author_1" placeholder="Author 1"
+                                <input type="text" class="form-control" name="book_authors[0]" placeholder="Author 1"
                                        aria-label="Author 1" required maxlength="100">
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                        aria-label="Year" required maxlength="4">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="author_2"
+                                <input type="text" class="form-control" name="book_authors[1]"
                                        placeholder="Author 2 (you can skip)" aria-label="Author 2" maxlength="30">
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                 <input class="form-control" type="file" name="file" id="formFile" accept="image/*" required maxlength="20">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="author_3"
+                                <input type="text" class="form-control" name="book_authors[2]"
                                        placeholder="Author 3 (you can skip)" aria-label="Author 3" maxlength="30">
                             </div>
                             <div class="form-floating">
