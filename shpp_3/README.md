@@ -2,11 +2,15 @@
 
 Это учебный проект "backend course 2020 - level 3" от **[Ш++](https://programming.org.ua)**.
 Суть в написании приложения-библиотеки на самописном фреймворке. 
-Templates, router, MVC, migrations, bootstrap, hasMany / hasOne, basic auth, cron.
+Templates, router, MVC, migrations, bootstrap, hasMany / hasOne, JOIN, basic auth, cron.
+Проект **не по методичке**. Задание - ТЗ с указанием обязательных решений.
+Проект не менторился и является этапом моего самостоятельного изучения PHP backend.
 
 >Для запуска проекта нужно скопировать всю деррикторию,
 заполнить constants.php своими данными и запустить миграцию,
-введя в адресную строку my.site/migrate
+введя в адресную строку my.site/migrate. Разработка велась в
+> [докер контейнерах](https://github.com/sprintcube/docker-compose-lamp),
+> возможны ошибки прав доступа к некоторым папкам и файлам. 
 
 ## Realisation features
 
@@ -20,7 +24,7 @@ libs.min.css и style.css подключены без каких-либо изм
 **Admin page** - сверстал на bootstrap.
 
 **Basic auth** - залогиниться не проблема, проблема разлогиниться.
-Найдено чудесное решение, работающее без закрывания рестарта Firefox. Нажатие ссылки **Exit** должно вернуть:
+Найдено чудесное решение, работающее без рестарта Firefox. Нажатие ссылки **Exit** должно вернуть:
 ```HTML
 <div>You have been logged out. Redirecting to home...</div>    
 
@@ -64,6 +68,17 @@ libs.min.css и style.css подключены без каких-либо изм
 
 **Soft Deletion** - my.site/clean выполняет удаление книг, помеченных для удаления,
 их связей с авторами и файл изображения обложки.
+
+**Cron** - скрипты и папка для резервных копий находятся в папке cron. 
+Я использую докер контейнеры, поэтому в таблице задач cron присутствует вход в контейнеры `docker exec`. 
+Также я примонтировал папку home контейнера mysql к локальной папке www. 
+В таблицу задач cron `crontab -e` я добавил строки:
+```
+0 0 * * * docker exec lamp-php83 /var/www/html/101/shpp_3/cron/clean.sh
+
+0 0 * * * docker exec lamp-mysql8 /home/101/shpp_3/cron/backup_db.sh
+
+```
 
 ## Personal notes
 Годный материал по написанию простого MVC фреймворка
