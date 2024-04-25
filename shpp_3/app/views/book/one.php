@@ -1,7 +1,7 @@
 <section id="main" class="main-wrapper">
     <div class="container">
         <div id="content" class="book_block col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <script id="pattern" type="text/template">
+            <!--<script id="pattern" type="text/template">
                 <div data-book-id="{id}" class="book_item col-xs-6 col-sm-3 col-md-2 col-lg-2">
                     <div class="book">
                         <a href="/book/{id}"><img src="img/books/{id}.jpg" alt="{title}">
@@ -15,7 +15,7 @@
                         </a>
                     </div>
                 </div>
-            </script>
+            </script>-->
             <div id="id" book-id="<?= $book_id ?>">
                 <div id="bookImg" class="col-xs-12 col-sm-3 col-md-3 item" style="
     margin:;
@@ -30,7 +30,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="bookLastInfo">
                             <div class="bookRow"><span class="properties">автор:</span><span
-                                        id="author"><?= $book_author_1 ?></span></div>
+                                        id="author"><?= $author_names ?></span></div>
                             <div class="bookRow"><span class="properties">год:</span><span
                                         id="year"><?= $book_year ?></span></div>
                             <div class="bookRow"><span class="properties">страниц:</span><span id="pages">351</span>
@@ -59,7 +59,7 @@
                                         переулок Васильевский 10, 5 этаж. Лучше предварительно прозвонить и предупредить
                                         нас, чтоб не попасть в неловкую ситуацию.<br> Тел. 099 196 24 69</p>
                                 </div>
-                                <div class="modal-footer" t style="text-align: center;">
+                                <div class="modal-footer" style="text-align: center;">
                                     <button type="button" class="btn btn-lg btn-success" id="closeModalBtn">OK</button>
                                 </div>
                             </div>

@@ -14,9 +14,9 @@
         <tr>
             <th scope="row"><?= $item['book_id'] ?></th>
             <td><?= $item['book_name'] ?></td>
-            <td><?= $item['book_author_1'] ?></td>
+            <td><?= $item['author_names'] ?></td>
             <td><?= $item['book_year'] ?></td>
-            <td>delete</td>
+            <td><a href="/admin/delete/<?= $item['book_id'] ?>">delete</a></td>
             <td><?= $item['book_click'] ?></td>
         </tr>
     <?php endforeach; ?>
